@@ -1,5 +1,5 @@
-your_name=input("enter your name")
-partner_name=input("enter partner name")
+your_name=input("enter your name : ")
+partner_name=input("enter partner name : ")
 flames="flames"
 empty_array=[]
 #string to list conversion
@@ -9,19 +9,34 @@ flames_inlist=stringtolist(flames)
 your_name_inlist=stringtolist(your_name)
 partner_name_inlist=stringtolist(partner_name)
 count_ofyourname=0
-for i in your_name_inlist:
-    if i not in partner_name_inlist:
-        count_ofyourname=count_ofyourname+1
-duplicate_count=len(your_name_inlist)-count_ofyourname
-elementscount_of_partner_name=len(partner_name_inlist) - duplicate_count
-total_element_count= count_ofyourname + elementscount_of_partner_name
+if (len(partner_name_inlist)<len(your_name_inlist)):
+    small_length_amongname=len(partner_name_inlist)
+    small_name=partner_name_inlist
+    large_length_amongname=len(your_name_inlist)
+    large_name=your_name_inlist
+else:
+    large_length_amongname=len(partner_name_inlist)
+    large_name=partner_name_inlist
+    small_length_amongname=len(your_name_inlist)
+    small_name=your_name_inlist
+duplicate_count=0
+count=0
+for i in small_name:
+    if i in large_name:
+        duplicate_count=duplicate_count+1
+remaining_smallname=small_length_amongname - duplicate_count
+remaining_largename=large_length_amongname-duplicate_count
+total_element_count= remaining_largename+remaining_smallname
 for i in range(0,len(flames_inlist)-1):
      length_flames=len(flames_inlist)
-     removing_number=total_element_count - length_flames
+     if(total_element_count<=6):
+         removing_number=total_element_count
+     else:
+         removing_number=total_element_count - length_flames
      while(not (removing_number<=length_flames)):
              total_element_count=removing_number
              removing_number=total_element_count - length_flames
-     total_element_count= count_ofyourname+elementscount_of_partner_name
+     total_element_count= remaining_largename+remaining_smallname
      removing_index = removing_number - 1
      flames_inlist.pop(removing_index)
      for element in range(removing_index,len(flames_inlist)):
