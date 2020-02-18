@@ -1,60 +1,41 @@
-
-'''list0=[]
-list1=[]
-list2=[]
-arr=[]
-n1 =int( input("Enter number of elements of input1 : "))
-for i in range(0, n1): 
-    ele1 = input("enter element")
-    list1.append(ele1) # adding the element 
-n2 =int(input("Enter number of elements of input2 : "))
-for i in range(0, n2): 
-    ele2 = input("enter element")
-    list2.append(ele2) # adding the element 
-n = int(input("Enter number of elements  : "))
-for i in range(0, n): 
-    ele0 = input("enter element")
-    list0.append(ele0) # adding the element '''
-list0=['f','l','a','m','e','s']
-list1=['j','a','m','e','e','l','a']
-list2=['s','h','a','h','i','n','a']
-arr=[]
-count=0
-for i in list1:
-    if i not in list2:
-        count = count+1
-#print(count)
-dup_count=len(list1)-count
-elementscount_oflist2=len(list2)-dup_count
-total_element_count= count+elementscount_oflist2
-#print(total_element_count)
-
-for i in range(0,len(list0)-1):
-    length_list0=len(list0)
-    c=total_element_count-length_list0
-
-    while(not (c<=length_list0)):
-        total_element_count=c
-        c=total_element_count-length_list0
-    total_element_count= count+elementscount_oflist2
-    #print("removing index",c)
-    rem_ele=c-1
-    list0.pop(rem_ele)
-    #print(list0)
-    j=rem_ele
-    for j in range(rem_ele,len(list0)):
-        arr.append(list0[j])
-    #print(arr)
-    for i in range(0,rem_ele):
-        arr.append(list0[i])
-    #print(arr)
-    list0.clear()
-    #print(list0)
-    for i in arr:
-        list0.append(i)
-    arr.clear()
-   # print(list0)
-print(list0) 
-
-
-
+your_name=input("enter your name")
+partner_name=input("enter partner name")
+flames="flames"
+empty_array=[]
+#string to list conversion
+def stringtolist(word): 
+    return list(word) 
+flames_inlist=stringtolist(flames)
+your_name_inlist=stringtolist(your_name)
+partner_name_inlist=stringtolist(partner_name)
+count_ofyourname=0
+for i in your_name_inlist:
+    if i not in partner_name_inlist:
+        count_ofyourname=count_ofyourname+1
+duplicate_count=len(your_name_inlist)-count_ofyourname
+elementscount_of_partner_name=len(partner_name_inlist) - duplicate_count
+total_element_count= count_ofyourname + elementscount_of_partner_name
+for i in range(0,len(flames_inlist)-1):
+     length_flames=len(flames_inlist)
+     removing_number=total_element_count - length_flames
+     while(not (removing_number<=length_flames)):
+             total_element_count=removing_number
+             removing_number=total_element_count - length_flames
+     total_element_count= count_ofyourname+elementscount_of_partner_name
+     removing_index = removing_number - 1
+     flames_inlist.pop(removing_index)
+     for element in range(removing_index,len(flames_inlist)):
+         empty_array.append(flames_inlist[element])
+     for element in range(0,removing_index):
+         empty_array.append(flames_inlist[element])
+     flames_inlist.clear()
+     for element in empty_array:
+         flames_inlist.append(element)
+     empty_array.clear()
+flames_dictionary={'f':'friend','l':'love','a':'affection','m':'marriage','e':'enemy','s':'sister'}
+index=flames_inlist[0]
+print("your relation  :",flames_dictionary.get(flames_inlist[0]))
+    
+     
+     
+     
