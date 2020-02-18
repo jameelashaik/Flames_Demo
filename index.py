@@ -54,7 +54,7 @@ for i in range(0,len(list0)-1):
         list0.append(i)
     arr.clear()
    # print(list0)
-print(list0)
+print(list0) 
 
 
 
